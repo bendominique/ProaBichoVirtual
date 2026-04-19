@@ -1,5 +1,7 @@
 package Models;
 import Enum.EstadoPet;
+import Strategy.BrincadeiraStrategy;
+
 import java.util.UUID;
 
 public abstract class Pet {
@@ -32,6 +34,12 @@ public abstract class Pet {
     }
     public int getNivelFome(){
         return this.nivelFome;
+    }
+    public int getNivelCansaco() {return this.nivelCansaco;}
+
+    public String setNome(String nome){
+        this.nome = nome;
+        return nome;
     }
 
     public int setIdade(int idade){
@@ -71,7 +79,7 @@ public abstract class Pet {
     }
 
 
-    public abstract void brincar();
+    public abstract void brincar(BrincadeiraStrategy estrategia);
     public abstract void comer();
     public abstract void dormir();
     public abstract void envelhecer();

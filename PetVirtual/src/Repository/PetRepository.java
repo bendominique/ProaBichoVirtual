@@ -4,6 +4,7 @@ import Models.Pet;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public class PetRepository {
@@ -13,13 +14,13 @@ public class PetRepository {
         pets.add(pet);
     }
 
-    public Pet buscarPetId(UUID petId){
+    public Optional<Pet> buscarPetId(UUID petId){
             for(Pet pet : pets){
                 if(pet.getId().equals(petId)){
-                    return pet;
+                    return Optional.of(pet);
                 }
             }
-        return null;
+        return Optional.empty();
     }
 
     public List<Pet> buscarTodosPets(){
